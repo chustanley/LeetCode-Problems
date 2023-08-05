@@ -21,12 +21,16 @@
 
 
 var isPalindrome = function(s) {
+    //This removes all of the excess elements that arent letters!
     var onlyLetters = s.replace(/[^A-Za-z0-9]/g, '');
+    
+    //this lowercases everything
     var lowerCase = onlyLetters.toLowerCase();
     
     var right = 0;
     var left = lowerCase.length - 1;
     
+    //You are slowely going towards the middle and if it doesnt equal the same, you are return false immediately.
     while (right < left) {
         if (lowerCase[right] === lowerCase[left]) {
             right++;
