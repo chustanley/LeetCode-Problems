@@ -1,0 +1,37 @@
+const quickestConcat = (s, words) => {
+  /*
+  were going to take a string, then iterate through the words array and find the start with then slice it and send it back.
+
+  However, were going to save its results into memo.
+  and return math.min the var and the current find?
+  */
+  var result = _quickestConcat(s, words);
+
+  if (result === Infinity) {
+    return -1;
+  } else {
+    return result;
+  }
+};
+
+const _quickestConcat = (s, words, memo = {}) => {
+  if (s in memo) return memo[s];
+  if (s.length === 0) return 0;
+
+  let minimum = Infinity;
+
+  for (var word of words) {
+    var startsWith = s.startsWith(word);
+    if (startsWith === true) {
+      var counter = 1 + _quickestConcat(s.slice(word.length), words, memo);
+      minimum = Math.min(minimum, counter);
+    }
+  }
+
+  memo[s] = minimum;
+  return minimum;
+};
+
+console.log(
+  quickestConcat("respondorreact", ["re", "or", "spond", "act", "respond"]),
+);
