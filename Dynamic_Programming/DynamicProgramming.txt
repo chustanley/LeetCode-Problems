@@ -1,0 +1,33 @@
+Dynamic Programming
+
+Use memoization to implement a o(1) look up and storage so that we dont have to repeat certain iterations of recursion.
+- However, it isnt the only way to do so. You can also implement tabulation.
+
+
+Dynamic Programming can be assessed by
+- TOP DOWN: memoization
+- BOTTOM UP: tabulation
+
+In top-down dynamic programming (memoization), you start with the original problem and break it down into smaller subproblems.
+However, you solve these subproblems recursively and store their results (usually in a memoization table or cache) to avoid
+redundant calculations. This approach often involves using recursion and is sometimes called "recursive with memoization."
+
+In contrast, bottom-up dynamic programming (tabulation) starts with the smallest subproblems and builds the solution
+iteratively by solving subproblems in a specific order, typically from the base cases up to the original problem.
+It involves creating a table or array to store the results of subproblems and doesn't rely on recursion.
+
+
+Advice:
+Brute Force: recurisvely solve the problem first then optimize later with memoization or tabulation:
+- When you bite off more than you can chew, youll choke
+
+Memoization keys should always contains the arguments that vary during htat recursion.
+- Add the keys that change.
+- Add the values that will be returned out of the function!
+
+Memoization is a patttern that caches values for certain inputs. This helps avoid duplicate computation -> reduce time spent on
+repeated code.
+
+
+DRAW out a tree to identify if we need to create some sort of dynamic programming to increase the time complexity.
+

@@ -1,0 +1,67 @@
+Graphs Data Structure
+
+Graph: Collection of nodes and edges
+
+Nodes holds data and edges are connections
+Edges can be a one way connection or a two way connection
+
+
+Directed Graph: one way edges that only allow you to go one direction.
+Undirected Graph: allows you to go back and forth
+
+Neighbor Nodes: any nodes that is accessible through an edge
+
+
+
+
+Adjacency List: object / hashmap with values as keys and an array as a value that has its neighbors
+
+
+Depth First Traversal on a graph: goes to the furthest part of the node. as in going to its neighbors neighbor until it reaches the end.
+- go one direction as far as possible before switching positions
+- Stack / recursion
+
+
+Example:
+
+Iterative
+
+const depthFirstSearch = (graph, source) => {
+  var stack = [source];
+  while (stack.length !== 0) {
+    const node = stack.pop();
+    console.log(node)
+
+    for (let key of graph[node]) {
+      stack.push(key);
+    }
+  }
+}
+
+Recursive
+
+const _depthFirst = (graph, source) => {
+  console.log(source);
+
+  for (let neighbor of graph[source]) {
+    _depthFirst(graph, neighbor)
+  }
+
+}
+
+
+Breadth First Traversal: explore all direction evenly instead of favoring one side specifically
+- queue
+
+
+const depthFirstSearch = (graph, source) => {
+  var stack = [source];
+  while (stack.length !== 0) {
+    const node = stack.pop();
+    console.log(node)
+
+    for (let key of graph[node]) {
+      stack.unshift(key); // REMEMBER UNSHIFT IS ANOTHER LOOP INSIDE OF A LOOP
+    }
+  }
+}
