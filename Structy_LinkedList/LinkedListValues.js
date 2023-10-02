@@ -9,6 +9,15 @@ class Node {
   }
 }
 
+/*
+Same for both.
+We are both iterating and saving every encountered value in an array
+We are both recursing and saving every value in an array
+
+Time: O(n)
+Space: O(n)
+*/
+
 //Iterative Case
 
 const linkedListValues = (head) => {
@@ -23,22 +32,13 @@ const linkedListValues = (head) => {
 
 //Recursive Case
 
-const _linkedListValues = (head) => {
-  if (head === null) return [];
+const _linkedListValues = (head, result = []) => {
+  if (head === null) return result;
 
-  const resultArray = [];
+  result.push(head.val);
+  head = head.next;
 
-  return recursiveFunc(head, resultArray);
-};
-
-const recursiveFunc = (head, storage) => {
-  if (head === null) return;
-
-  storage.push(head.val);
-
-  recursiveFunc(head.next, storage);
-
-  return storage;
+  return _linkedListValues(head, result);
 };
 
 /* TEST CASE */

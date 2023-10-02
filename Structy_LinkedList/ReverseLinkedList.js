@@ -5,19 +5,27 @@ in-place and return the new head of the reversed linked list.
 */
 
 //Iterative Approach
+//Time: o(n)
+//Space: o(1)
 const reverseList = (head) => {
   let lastNode = null;
 
   while (head !== null) {
+    //Save the current head.next in a variable so we can adjust later
     const nextNode = head.next;
+    //When we modify the current head it doesnt affect the variable above.
     head.next = lastNode;
+    //We assign the 'last node placeholder; the whole value of the currentHead with the modified next.
     lastNode = head;
+    //Reassign the head to the saved current head.next
     head = nextNode;
   }
   return lastNode;
 };
 
 //Recursive Approach
+//Time: o(n)
+//Space: o(n)
 const _reverseList = (head, prev = null) => {
   //Return when we reach the end of the root head
   if (head === null) return prev;

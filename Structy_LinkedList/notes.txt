@@ -1,0 +1,40 @@
+LinkedList Notes
+
+Ordered data structure
+- one node leads to another which makes it ordered
+
+Head of a linkedlist is the beginning.
+Tail is at the end.
+
+
+Difference between array and linkedlist
+- Search time for a node or item in both is o(n)
+- array: items are stored right next to each other in array
+    - meaning that in order to add or remove in the array, we have to shift the whole array
+    - o(n) insertion time
+- LinkedList: items are scattered all around the system
+    - when we add items in the Linkedlist since its scattered we can just point our next to another object
+    - O(1) insertion time.
+
+
+
+When performing recursion, we have to reassign current to its next and end when current === null
+- Same thing for iterative approach.
+
+
+When writing code, try to write it as present as possible. Not talking about the future or previous
+- current: while (current !== null) is present speaking
+- future: while (current.next !== null) is future speaking
+
+
+LinkedList for some of these problems are better in iterative than recursive
+- Recursive: always o(n) time complexity and space complexity
+- Iterative: o(n) but space MIGHT be o(1)
+
+
+Saving LinkedList's next in a variable then modifying that current node's .next will not affect the variable.
+- Variable acts like a pointer
+- modifying the current node's next is going to modify the current node but not the object / node inside of its .next
+- think of it as re assigning the pointer to point somewhere else.
+- saving the .next is like making another pointer on that node.
+

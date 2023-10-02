@@ -6,6 +6,17 @@ Single character occurrences should not be changed.
 */
 
 //YOUR APPROACH
+/*
+You are using the first item as a sample of the first item. You have a multiplier as one and an empty result string.
+
+you are going to iterate through the string and start at 1.
+- You will check if the items match the sample variable and if it does, incremenet multiplier.
+- If not, we check if multiplier is greater than one. if so, we add the number and the x amount of letters.
+    - If the multiplier is not greater than one, then just add the word to it without the number 1.
+
+
+Change the sample variable value and turn the multiplier back to 1!
+*/
 const _compress = (s) => {
   let currentLetter = s[0];
   let multiplier = 1;
@@ -51,6 +62,7 @@ const compress = (s) => {
       //If not equal, j - i will give you the difference and if j - i = 1, we just push the nums[i] since its pointing at the first copy
       //If j-i is not equal to 1, we .push(nums.toString(), nums[i])
     } else {
+      //num in this case is the COUNT of HOW many letters are there.
       const num = j - i;
       if (num === 1) {
         result.push(s[i]);

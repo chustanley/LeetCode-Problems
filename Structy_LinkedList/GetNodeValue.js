@@ -31,7 +31,7 @@ const _getNodeValue = (head, index, count = 0) => {
   if (head === null) return null;
   if (index === count) return head.val;
   count++;
-  return _getNodeValue(head.next, index);
+  return _getNodeValue(head.next, index, count);
 };
 
 //Test

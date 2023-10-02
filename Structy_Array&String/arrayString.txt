@@ -1,0 +1,3 @@
+In ArrayStrings, what we used was....
+- pointers to find out location and incremenet
+- used new Set() to remove duplicates and see if theres any duplicates in other strings

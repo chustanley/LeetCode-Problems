@@ -18,6 +18,7 @@
 
   */
 
+//return all words that are common in A and B.
 const intersection = (a, b) => {
   var comparisonFactor = new Set(a); // This is O(n) because we have to go through the array. but the insertion is o(1)
 

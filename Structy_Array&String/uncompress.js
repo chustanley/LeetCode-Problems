@@ -23,6 +23,8 @@ const uncompress = (s) => {
     if (numbers.includes(s[j])) {
       j += 1;
     } else {
+      //J is current on the letter. that we need to make copies of.
+      //s.slice(i,j) doesnt consider j in mix and will only grab the number
       const num = Number(s.slice(i, j));
       for (let count = 0; count < num; count += 1) {
         //It is better to use an array because string concatantion is o(n) since were making copies of it internally

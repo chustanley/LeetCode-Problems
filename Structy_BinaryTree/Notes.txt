@@ -1,0 +1,8 @@
+Binary Search Tree
+
+- uses node with a value, left and right key
+
+Depth first traversal: goes to the deepest part of the tree first then the other nodes
+- up down
+Breadth first traversal: goes to side by side then goes all the way down
+- left right
