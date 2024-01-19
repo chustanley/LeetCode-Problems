@@ -1,8 +1,40 @@
 Binary Search Tree
-
 - uses node with a value, left and right key
+- LEFT and RIGHT are null if THEY have NO children output there
 
 Depth first traversal: goes to the deepest part of the tree first then the other nodes
 - up down
+
 Breadth first traversal: goes to side by side then goes all the way down
 - left right
+
+
+Notes
+- Binary search tree only uses familial nodes. Every node has only 2 children max.
+- Root is a children that has no parent. The peak of the tree
+- Leaf is the very last children of the tree - has NO children
+
+Powerpoint Notes
+- At most 2 children per node
+- Exactly 1 root
+- Exactly 1 path b/w root and any node - only one path to go to any node
+
+Anything that goes againts these rules are NOT binary trees
+
+
+
+
+
+Notes on Recursion
+- Think of the edgecase as the most simplest way.
+  - TreeSum: get the total sum of all the nodes in the binary tree
+    - here, we are going to make every left and right that are null return 0 so that the node with these left and right val will return
+      the value of itself: val(2) + left(0) + right(0)
+
+
+
+
+Good questions to review
+- All Tree Paths
+- Level Average
+

@@ -7,8 +7,8 @@
 
     You can use bruteForce 'includes' which technically is already another loop so this one will cause a time out since its a*b complex
     Brute Force Time Complexity
-    - Time: O(n*m) because nested loop w/ includes
-    - Space: O(min(n, m)) becuase we store the lowest one.
+    - Time: O(n+m) because nested loop w/ includes
+    - Space: O(min(n, m)) because at the worst case scenario, you should understand that if all of arrayA was in arrayB and array1 is the shorter array. there you go
 
 
 
@@ -20,7 +20,7 @@
 
 //return all words that are common in A and B.
 const intersection = (a, b) => {
-  var comparisonFactor = new Set(a); // This is O(n) because we have to go through the array. but the insertion is o(1)
+  var comparisonFactor = new Set(a); // This is time O(n) because we have to go through the array to create the set. but the insertion is o(1)
 
   var resultArray = [];
 

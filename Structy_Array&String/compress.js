@@ -55,6 +55,7 @@ const compress = (s) => {
   let i = 0;
   let j = 0;
 
+  //This <= is very important because if its only < and not <=, our 'else' will not trigger correctly and would drop the last combo
   while (j <= s.length) {
     //if equal += 1 as in move the current pointer by 1 position
     if (s[i] === s[j]) {
@@ -63,6 +64,8 @@ const compress = (s) => {
       //If j-i is not equal to 1, we .push(nums.toString(), nums[i])
     } else {
       //num in this case is the COUNT of HOW many letters are there.
+      //UNTIL J LANDS ON A CHARACTER THAT ISNT THE SAME AS I WE GO HERE
+      //ONCE HERE, THE DIFFERENCE WILL = THE COUNT because index count corretly here.
       const num = j - i;
       if (num === 1) {
         result.push(s[i]);
@@ -80,4 +83,6 @@ const compress = (s) => {
   return result.join("");
 };
 
+//You can have result as a string but if you keep += it, it increases the space complexity
+//The variable lives somewhere
 console.log(compress("ccaaatsss"));

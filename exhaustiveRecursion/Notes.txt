@@ -1,0 +1,6 @@
+Exhaustive recursion
+- Recursion but considering all possibilities within the parameter.
+- These problems recurse through every possibilitiy and considers them into
+   the result array creating an array of arrays with all possibilities w/ some limitations
+   depending on what the problem is asking.
+

@@ -18,11 +18,13 @@ const allTreePaths = (root) => {
   if (root === null) return [];
   if (root.left === null && root.right === null) return [[root.val]];
 
+  //This is going to hold all paths from the left and right side then be returned at the botttom to some left or right side in the recursion!!
   var resultArray = [];
 
-  const left = allTreePaths(root.left);
+  const left = allTreePaths(root.left); //Example: [[key]]
   for (let key of left) {
-    resultArray.push([root.val, ...key]);
+    // [KEY]
+    resultArray.push([root.val, ...key]); // KEY
   }
 
   const right = allTreePaths(root.right);

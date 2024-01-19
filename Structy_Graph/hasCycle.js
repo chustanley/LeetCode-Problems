@@ -38,6 +38,12 @@ const findCycle = (graph, node, visited, visiting) => {
   //When we reach the end and we have an empty array
   //it wont iterate anymore so we will delete the node from visitng and add it to visited
   //We return false so it goes back to the loop.
+
+  //After iteration of its 'children' and we dont find a cycle,
+  //We delete it from visiting because we dont consider it anymore as a potential cycle
+  //However, we dont need to really delete it. Being added to visited is enough.
+  //Because if its in visited, the code above will disqualify it if we see it again!! more efficient
+
   visiting.delete(node);
   visited.add(node);
   return false;

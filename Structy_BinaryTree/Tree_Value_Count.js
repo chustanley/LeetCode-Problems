@@ -25,6 +25,18 @@ const treeValueCount = (root, target) => {
   );
 };
 
+//This recursive function returns 1 if match and 0 if not and keeps adding
+//I like the structure of this
+const _treeValueCount = (root, target) => {
+  if (root === null) return 0;
+  const match = root.val === target ? 1 : 0;
+  return (
+    match +
+    _treeValueCount(root.left, target) +
+    _treeValueCount(root.right, target)
+  );
+};
+
 const a = new Node(12);
 const b = new Node(6);
 const c = new Node(6);

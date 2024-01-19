@@ -16,12 +16,29 @@ Look at the drawing on your ipad, the science behind fibonacci makes sense but i
 we can use memoization
 */
 
+/*
+
+Time Complex o(2^n) b/c for every increases in input, we nede 2^n extra steps
+Space Complex o(n)
+
+After memoization, AS INPUT size increases, the calls increases linearly.
+
+Time Complex: o(N)
+Space Complex O(N)
+*/
+
 const fibonacci = (n, memo = {}) => {
+  //Checking to see if the current fib recursion is inside of memo.
   if (n in memo) return memo[n];
+
+  //If we reach the bottom aka 0 or 1, we return its val.
   if (n === 0) return 0;
   if (n === 1) return 1;
 
+  //Save the result of adding both fibs into the memo of the current fib number
   memo[n] = fibonacci(n - 1, memo) + fibonacci(n - 2, memo);
+
+  //Return the memo that we just added.
   return memo[n];
 };
 

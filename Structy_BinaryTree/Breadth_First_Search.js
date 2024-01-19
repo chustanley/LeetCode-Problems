@@ -13,6 +13,10 @@ class Node {
 
 /*
 This can only be done iteratively and not with a stack ONLY queue
+
+Queue: First in First Out
+- By this we always add left and right into the queue. However the right lines up right after the left so when we keep unshifting, we ill always encoutner
+  the nodes in a order of left right left right left right not left left left left then right
 */
 
 const breadthFirstValues = (root) => {

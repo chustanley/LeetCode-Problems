@@ -1,0 +1,9 @@
+What is Class?
+- When class is called, you are creating reusable code by initiating new to that class.
+- Example (constructor creates the 'parameter input' into the class)
+  - class Node {
+      constructor(val) {
+        this.val = val
+        this.next = null
+      }
+    }

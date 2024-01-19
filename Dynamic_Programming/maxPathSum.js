@@ -17,14 +17,19 @@ everytime we iterate to the left or right, we want the max. how should we do thi
 const maxPathSum = (grid, r = 0, c = 0, memo = {}) => {
   const location = r + "," + c;
 
+  //if visited, return value
   if (location in memo) return memo[location];
+
+  //if out of bounds return 0
   if (r === grid.length || c === grid[0].length) return 0;
 
+  //if we hit the end return its value
   if (r === grid.length - 1 && c === grid[0].length - 1) return grid[r][c];
 
   const moveLeft = maxPathSum(grid, r, c + 1, memo);
   const moveDown = maxPathSum(grid, r + 1, c, memo);
 
+  //Find the max out of left and down and add it to the current number
   const addition = grid[r][c] + Math.max(moveLeft, moveDown);
 
   memo[location] = addition;

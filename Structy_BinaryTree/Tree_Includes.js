@@ -12,6 +12,9 @@ class Node {
 }
 
 //Iterative Approach
+/*
+Can be done with queue or stack doesnt matter we just want to see if the tree has the item or not so scanning it in anyway works
+*/
 
 const treeIncludes = (root, target) => {
   if (root === null) return false;

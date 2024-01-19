@@ -11,6 +11,19 @@ Return the minimum length bridge needed to connect the two islands. A bridge doe
 2. Count distance.
 */
 
+/*
+answer: you add main island onto queue and run a delta search on all of the possible pieces that arent
+1. out of bounds
+2. inside of main island already
+
+Add these nodes onto a queue and finish queue iterating (breadth) search through the island
+
+from here, youre going to run a breadth first on all the pieces after we exhaust the added main island within
+the same queue
+
+from here, we will be able to get the closest bridge / best bridge
+*/
+
 const bestBridge = (grid) => {
   let mainIsland;
 
@@ -28,13 +41,45 @@ const bestBridge = (grid) => {
   }
 
   /*
+  Answer to how it will find the shortest bridge to the next island
+
+  We CREATE a queue and generate it with positions from the main island.
+  we unshift through the entire queue first which will basically iterate through the entire 'main island' and add all of the
+  spots into the QUEUE.
+
+  For every land in the island, we are adding its up down left right into the queue with increasing numbers as steps
+
+  the moment we land into the queue that isnt part of the land, we will then consider if we HIT the other LAND or not.
+
+  remember, its a queue. not a stack. so we spread like a virus instead of chasing to the end. thats why
+  were able to get the lowest number possible because of a spread like queue .
+  */
+
+  /*
   Make a copy of the main island set into another set.
 
-  we will check to make sure that the current Index is
+  You will have 2 sets
+  1. original main island
+  2. visited that also consist of original main island.
+
+  initially we will check to see if the location we are on is inside of the main island.
+
+  if not then check if it is in bounds? then check if visited already has it.
+  - Check if in bounds becuase we dont want out of bounds item
+  - Check if visited already has it.. because if it does. we dont do shit!
+
+  then if it doesnt, we add it into visited then we add it into queue to perform a breadth first search.
+
+  THIS IS THE REASON WHY WE MAKE A COPY.
+
+  1 IS TO KEEP TRACK OF IT NOT BEING THE 'MAIN ISLAND'
+  2 IS TO KEEP TRACK OF THE ONES THAT ARE ALREADY VISITED BEFORE WE ADD IT INTO QUEUE
 
 */
   const visited = new Set(mainIsland);
   const queue = [];
+
+  //Going through main island and adding all of its data onto the queue.
   for (let pos of mainIsland) {
     const [row, col] = pos.split(",").map(Number);
     queue.push([row, col, 0]);

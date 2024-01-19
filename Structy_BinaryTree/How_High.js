@@ -13,6 +13,10 @@ class Node {
   }
 }
 
+//This function will recieve the highest level of the entire tree!
+/*
+Return -1 if null because if both sides are -1, we find the greatest of them and add 1 to it for its level being considered
+*/
 const howHigh = (node) => {
   if (node === null) return -1;
   return 1 + Math.max(howHigh(node.left), howHigh(node.right));

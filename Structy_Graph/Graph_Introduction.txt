@@ -65,3 +65,15 @@ const depthFirstSearch = (graph, source) => {
     }
   }
 }
+
+
+
+Graph Basics
+- Collection of nodes and edges
+  - Nodes: circle with values in them AKA vertex
+  - Edges: connection between nodes
+    - Can have directed and not directed
+    - Described as a 'road' between cities
+
+
+- Nodes are trasnfered into an adjacency list - hash map - object

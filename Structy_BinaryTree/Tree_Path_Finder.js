@@ -15,6 +15,16 @@ const pathFinder = (root, target) => {
   }
 };
 
+/*
+We recurse on the left side, we recurse on the right side
+
+Every right will have to have come from a left and every left must have come from a right (except for 2nd level)
+
+If none of these returned anything, then we will return null.
+
+If one of the sides return something, that means that the value was found and thats because of our if statement indicating that we will push and return to the array if it wasnt null
+*/
+
 const pathFinderHelper = (root, target) => {
   if (root === null) return null;
 

@@ -29,7 +29,7 @@ const _linkedListFind = (head, target) => {
 
   if (head === null) return false;
 
-  return _linkedListFind(head.next, target) ? true : false;
+  return _linkedListFind(head.next, target);
 };
 
 //Test

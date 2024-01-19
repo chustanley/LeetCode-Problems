@@ -35,3 +35,13 @@ const pairSum = (numbers, targetSum) => {
   }
 };
 console.log(pairSum([4, 7, 9, 2, 5, 1], 3));
+
+/*
+Current case w/ 1 loop
+Time: o(n)
+Space: o(n)
+
+Brute force w/ 2 nested loops
+Time: o(n^2) because for every item, we are doing 2 iterations but nested.
+Space: o(1)
+*/

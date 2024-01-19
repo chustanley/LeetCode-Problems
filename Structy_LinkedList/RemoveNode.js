@@ -25,18 +25,27 @@ When you come across the val you are looking for in the argument, make the end.n
 so we skip it and return the start which is the beginning of the linkedlist
 */
 const removeNode = (head, targetVal) => {
+  //Checks to see if targetVal is equal to the first head.val
   if (head.val === targetVal) return head.next;
 
+  //Keeps track of the start
   const start = head;
+  //Keeps track of the previos
   let end = start;
 
+  //We already checked the first NODE, so now we can move it to the second NODE.
   head = head.next;
 
+  //Iteration
   while (head !== null) {
+    //If target found, we assign the end.next to the head.next, skipping the targeted value. Then we return.
     if (head.val === targetVal) {
       end.next = head.next;
       return start;
     }
+
+    //During every iteration, adjust .next of end to next and the head also to next.
+    //End is always one node behind head.next
     end = end.next;
     head = head.next;
   }

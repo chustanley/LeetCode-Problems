@@ -20,6 +20,16 @@ const addLists = (head1, head2) => {
   var lastNode;
   var extra = 0;
 
+  /*
+  Extra explained
+
+  - The loop will keep iterating as long as extra has a number inside of it that isnt 0.
+  - Extra will keep being reassigned if the number inside addnodes is greater than 9 (double digit)
+  - Since this loop till keep iterating as long as extra is greater than 0, even when both of heads are exhausted,
+    as long as extra has something that isnt 0, it will keep iterating
+
+  */
+
   while (head1 !== null || head2 !== null || extra !== 0) {
     //if the head is null, replace it with a 0
     var current1 = head1 === null ? 0 : head1.val;
@@ -31,6 +41,7 @@ const addLists = (head1, head2) => {
 
     //Getting the modulo 10 of a lower number does nothing but getting a modulo of any number greater than 10 will drop its 'first val'
     //19 % 10 = 9
+    //9 % 10 = 9
     var newNode = new Node(addNodes % 10);
 
     //if undefined assign the start and end with the values
@@ -92,3 +103,67 @@ b2.next = b3;
 
 addLists(a1, b1);
 // 5 -> 7 -> 9
+
+/*
+
+
+
+class Node {
+  constructor(val) {
+    this.val = val;
+    this.next = null;
+  }
+}
+
+const addLists = (head1, head2) => {
+
+  var resultNode;
+  var lastNode;
+  var extra = 0;
+
+  while (head1 !== null || head2 !== null || extra !== 0) {
+
+    //Filling in 0 to whatever node is absent.
+    var current1 = head1 === null ? 0 : head1.val
+    var current2 = head2 === null ? 0 : head2.val
+
+    //Also add the extra from the one before.
+    var addNodes = current1 + current2 + extra;
+
+    //Creating the extra from the one before
+    extra = addNodes > 9 ? 1 : 0;
+
+
+    //If 19, this will be 9, if below 10, it would be its original.
+    var newNode = new Node(addNodes % 10);
+
+    //Beginning, make newNode the first node
+    if (resultNode === undefined) {
+      resultNode = newNode;
+      lastNode = resultNode;
+    } else {
+      //If not beginning, make next node the created node.
+      lastNode.next = newNode;
+      lastNode = lastNode.next;
+    }
+
+    //If head1 or 2 is null, return null if not, return its next
+    //Edgecase above will take care of it.
+    head1 = head1 === null ? null : head1.next
+    head2 = head2 === null ? null : head2.next
+  }
+
+
+  return resultNode;
+
+
+};
+
+module.exports = {
+  addLists,
+};
+
+
+
+
+*/

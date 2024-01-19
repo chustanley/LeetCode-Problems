@@ -39,7 +39,7 @@ const mergeLists = (head1, head2) => {
       end.next = head1;
       head1 = head1.next;
     }
-
+    //Always reassign the end to its end.next so that were at the latest node!
     end = end.next;
   }
 
@@ -69,6 +69,7 @@ const iterativeMergeLists = (head1, head2) => {
     tail = tail.next;
   }
 
+  //This edgecase is for if one of the inputs still have remaining nodes, we add the rest into the tail!
   if (current1 !== null) tail.next = current1;
   if (current2 !== null) tail.next = current2;
 
@@ -80,9 +81,14 @@ const recursiveMergeLists = (head1, head2) => {
   if (head1 === null) return head2;
   if (head2 === null) return head1;
 
+  //This is how we modify the existing head.
+  //We find the lowest one and start saving its .next then modifying the existing head to === that.
   if (head1.val < head2.val) {
+    //Saving the head1
     const next1 = head1.next;
+    //Reassigning the .next to = the recursive call.
     head1.next = mergeLists(next1, head2);
+    //Returning head1 because thats the 'lowest' node we chose!
     return head1;
   } else {
     const next2 = head2.next;

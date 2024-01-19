@@ -17,6 +17,14 @@ Steps:
 - Perform a depth first search on every node in an adjacency list.
 - When we arrive at a node that we saw before, please return its value.
 
+
+Explanation:
+- Get terminal nodes to be 0.
+- for every node we encounter on the adjacency list, we want to find its maximum longest path.
+- We can do this by performing a depth first search and for every returned recursive call, we check for its maximum with a vairable.
+- Final: after assigning it to a variable. we assign the value of the node the highest maximum value possible!
+
+
 Be Careful:
 - We need some max value logic when iterating through the neighbor of a node.
 - We ARE trying to find the longest path of the nodes.

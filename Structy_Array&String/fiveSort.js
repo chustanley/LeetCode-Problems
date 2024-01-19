@@ -23,9 +23,16 @@ const fiveSort = (nums) => {
         /*
         This switches them both at the same time.
         Doing it like nums[start] = nums[end] and then nums[end] = nums[start] WILL NOT do anything
+        Doing it below will change them simultaneously
+
+        This is considered destructering syntax
+
+        swapping 2 items like below is in constant time operation
         */
         [nums[start], nums[end]] = [nums[end], nums[start]];
       }
+
+      //Increment regardless of if the number is equal to 5 or not
       start++;
     }
   }

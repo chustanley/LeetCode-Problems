@@ -41,6 +41,23 @@ const _linkedListValues = (head, result = []) => {
   return _linkedListValues(head, result);
 };
 
+//RecursiveCase w/ helper
+
+const __linkedListValues = (head) => {
+  const resultArray = [];
+
+  helperRecursive(head, resultArray);
+
+  return resultArray;
+};
+
+const helperRecursive = (head, array) => {
+  if (head === null) return array;
+
+  array.push(head.val);
+  helperRecursive(head.next, array);
+};
+
 /* TEST CASE */
 
 const a = new Node("a");

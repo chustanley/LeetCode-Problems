@@ -12,6 +12,12 @@ class Node {
   }
 }
 
+/*
+First edgecase is for if a node has one side with null and other side with children
+Second edgecase is for if both sides have null you return its value
+
+Reason: if you have 2 -Infinity, the max of them is inifinity + a root.val will still be -Infinity
+*/
 const maxPathSum = (root) => {
   if (root === null) return -Infinity;
 

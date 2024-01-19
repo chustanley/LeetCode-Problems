@@ -12,6 +12,9 @@ class Node {
   }
 }
 
+//Do a breadth first search and when the queue has no more items in it, and the node has no left or right, return.
+//This depends on the structure of your unshift. (which side your unshifting first)
+
 const bottomRightValue = (root) => {
   var resultArray = [root];
 

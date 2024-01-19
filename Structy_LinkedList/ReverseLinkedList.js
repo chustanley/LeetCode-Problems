@@ -11,13 +11,15 @@ const reverseList = (head) => {
   let lastNode = null;
 
   while (head !== null) {
-    //Save the current head.next in a variable so we can adjust later
+    //Save the current head.next in a variable so we can adjust later (ALLOWS us to have access to it even if its re-assigned)
     const nextNode = head.next;
     //When we modify the current head it doesnt affect the variable above.
     head.next = lastNode;
     //We assign the 'last node placeholder; the whole value of the currentHead with the modified next.
+    //Lastnode now points towards the head that is modified
     lastNode = head;
     //Reassign the head to the saved current head.next
+    //This doesnt change lastNode
     head = nextNode;
   }
   return lastNode;

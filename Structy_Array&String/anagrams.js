@@ -16,13 +16,19 @@ Anagrams is when 2 words have the same amount of letters and same letters.
 
    Time complexity: O(s1.length + s2.length)
    Space complexity:O(s1.length + s2.length)
+
+   This is technically O(n) because were just adding the time complexity together
   */
+
 const anagrams = (s1, s2) => {
+  //If the lengths are off from the beginning, return false.
   if (s1.length !== s2.length) return false;
 
+  //Storage bins for each string count
   let s1Storage = {};
   let s2Storage = {};
 
+  //Count the letters from string 1
   for (let letter of s1) {
     if (s1Storage[letter] === undefined) {
       s1Storage[letter] = 1;
@@ -31,6 +37,7 @@ const anagrams = (s1, s2) => {
     }
   }
 
+  //Count letters from string2 but then also check if it is in string 1 and if not then return false.
   for (let letter of s2) {
     if (s1Storage[letter] === undefined) {
       return false;
@@ -43,6 +50,7 @@ const anagrams = (s1, s2) => {
     }
   }
 
+  //Iterate again and see if the counts are the same within each other.
   for (let key in s1Storage) {
     if (s1Storage[key] !== s2Storage[key]) return false;
   }

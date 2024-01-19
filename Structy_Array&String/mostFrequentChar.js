@@ -40,3 +40,28 @@ const mostFrequentChar = (s) => {
 };
 
 mostFrequentChar("mississippi");
+
+const _mostFrequentChar = (s) => {
+  const count = {};
+
+  for (let letter of s) {
+    if (!(letter in count)) {
+      count[letter] = 1;
+    } else {
+      count[letter]++;
+    }
+  }
+
+  /*
+ This utilizes less variables! pretty good thought analysis
+ */
+  let best = null;
+
+  for (let letter of s) {
+    if (best === null || count[letter] > count[best]) {
+      best = letter;
+    }
+  }
+
+  return best;
+};

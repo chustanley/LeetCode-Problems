@@ -20,6 +20,7 @@ Within the for loop, we have nums[current] as the limiter and this will slowly i
 const arrayStepper = (numbers, i = 0, memo = {}) => {
   if (i in memo) return memo[i];
 
+  //As long as you hit the last item you return true immediately
   if (i >= numbers.length - 1) return true;
 
   const maxStep = numbers[i];
@@ -30,6 +31,7 @@ const arrayStepper = (numbers, i = 0, memo = {}) => {
     }
   }
 
+  //If we land on 0, we will not iterate and just be sent here.
   memo[i] = false;
   return false;
 };

@@ -34,6 +34,15 @@ const _getNodeValue = (head, index, count = 0) => {
   return _getNodeValue(head.next, index, count);
 };
 
+//Can count down too, many ways to do it
+
+const __getNodeValue = (head, index) => {
+  if (head === null) return null;
+  if (index === 0) return head.val;
+
+  return __getNodeValue(head.next, index - 1);
+};
+
 //Test
 const a = new Node("a");
 const b = new Node("b");

@@ -37,16 +37,23 @@ const minimumIsland = (grid) => {
 };
 
 const explore = (grid, r, c, visited) => {
+  //Count is going to be incremented
   let count = 0;
+
+  //We create our search tag here
   const islandTag = r + ", " + c;
 
+  //Checking to see if the iteration is going to be out of bounds
   const rowInbounds = 0 <= r && r < grid.length;
   const colInbounds = 0 <= c && c < grid[0].length;
   if (!rowInbounds || !colInbounds) return count;
 
+  //Check to see if the island tag is already inside of the visited / cycle
   if (visited.has(islandTag)) return count;
   if (grid[r][c] === "W") return count;
 
+  //If in bounds, NOT a W and NOT a cycle, increment COUNT, ADD it to storage and RECURSE while adding
+  //the result into count
   count++;
 
   visited.add(islandTag);
@@ -56,6 +63,7 @@ const explore = (grid, r, c, visited) => {
   count += explore(grid, r, c + 1, visited);
   count += explore(grid, r, c - 1, visited);
 
+  //Return the count.
   return count;
 };
 

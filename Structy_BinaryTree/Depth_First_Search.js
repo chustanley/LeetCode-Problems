@@ -14,6 +14,15 @@ class Node {
 /*
 Depth First Search is when the search goes all the way down first
 This can only be done with a stack and recursion NOT queue
+
+QUEUE is only done iteratively because recursion is a 'stack'
+
+QuickNotes: Stack is Last in First out. By that if we keep stacking the left side and removing it over and over, we are going DOWN the left side till
+there are no more nodes to go over.
+
+Depending on how we apply the adding and withdrawl of the queue is going to decide the time and space complex
+Time Complexity:  o(n)
+Space Complexity: o(n)
 */
 
 //Iterative Case
@@ -37,6 +46,7 @@ const depthFirstValues = (root) => {
 };
 
 //Recursive Case
+//Spread operator is a o(n) time complex
 const _depthFirstValues = (root) => {
   if (root === null) return [];
 

@@ -20,9 +20,12 @@ const nonAdjacentSum = (nums, i = 0, memo = {}) => {
 
   if (i >= nums.length) return 0;
 
+  //Selecting current and recursing on a +2
   const plusTwo = nums[i] + nonAdjacentSum(nums, i + 2, memo);
+  //Selecting NOT the current and recursing on a +1
   const plusOne = nonAdjacentSum(nums, i + 1, memo);
 
+  //Finding the maximum of the 2 and labeling the current index that maximum!So everytime we land on it its always going to tell me the maximum val in here.
   memo[i] = Math.max(plusTwo, plusOne);
   return memo[i];
 };

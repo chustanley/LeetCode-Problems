@@ -60,6 +60,8 @@ const explore = (grid, r, c, visited) => {
   //Cycle prevention logic
   const position = r + "," + c;
   if (visited.has(position)) return false;
+
+  //If it is in bounds, not a W and it is NOT inside of visited. Add it and recurse
   visited.add(position);
 
   //Try to not LOOK before you leap. just do it and make it get caught by the base case above.

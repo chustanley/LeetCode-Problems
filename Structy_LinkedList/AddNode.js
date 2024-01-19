@@ -27,6 +27,9 @@ const insertNode = (head, value, index) => {
   const start = head;
   let end = start;
 
+  //Might look a bit confusing at first but if you think about it
+  //What your doing is at the 2nd node, you are assigning the end.next which is technically the '2nd item' but not the '2nd' INDEX
+  //GOAL: make the new input the '2nd index' of the LL meaning the 3rd item in this case
   while (head !== null) {
     count++;
 

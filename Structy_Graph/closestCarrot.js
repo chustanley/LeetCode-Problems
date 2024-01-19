@@ -31,17 +31,20 @@ ELSE RETURN -1
 */
 
 const closestCarrot = (grid, row, col) => {
+  //Add current location to the queue
   let queue = [{ row: row, col: col, count: 0 }];
 
+  //Save current location to the new set so no repeats
   const visited = new Set([row + "," + col]);
 
+  //Iterate through the queue, current location
   while (queue.length > 0) {
     const { row, col, count } = queue.pop();
 
-    if (grid[row][col] === "C") {
-      return count;
-    }
+    //If we find the carrot return the count
+    if (grid[row][col] === "C") return count;
 
+    //This is up down left right
     const deltas = [
       [-1, 0],
       [0, -1],
@@ -49,18 +52,26 @@ const closestCarrot = (grid, row, col) => {
       [0, 1],
     ];
 
+    //Iterate through the movements
     for (let delta of deltas) {
       const [rowDelta, colDelta] = delta;
 
+      //Create potential movements
       const newRow = row + rowDelta;
       const newCol = col + colDelta;
 
+      //If potential movement is within bounds
       var isItInBounds = inBounds(grid, newRow, newCol); //If true, all in bounds, if not it is false
 
+      //If visited DOESNT have potential movement
       var isVisited = visited.has(newRow + "," + newCol);
 
+      //If all above PASSES + 'NOT a X'
       if (isItInBounds && grid[newRow][newCol] !== "X" && !isVisited) {
+        //We add the new location ONTO the queue!
         queue.unshift({ row: newRow, col: newCol, count: count + 1 });
+        //Since we add it onto the queue that means that we ENCOUNTERED IT already so we just add it to the set
+        //So that we dont repeat
         visited.add(newRow + "," + newCol);
       }
     }
